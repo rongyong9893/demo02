@@ -3,7 +3,7 @@ server:
   tomcat:
     uri-encoding: utf-8
 
-#����Դ
+#数据源
 spring:
   datasource:
     url : jdbc:mysql://localhost:3306/springboot_demo01
@@ -11,7 +11,7 @@ spring:
     password : 1234
     driverClassName : com.mysql.jdbc.Driver
 
-#pagehelper���� ��ͬ�����ݿ�ֻҪ����helperDialect�Ϳ�����
+#pagehelper分页插件不同数据库只需修改elperDialect即可
 pagehelper:
   helperDialect: mysql
   reasonable: true
