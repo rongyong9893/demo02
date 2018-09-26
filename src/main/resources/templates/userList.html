@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--分页插件-->
+    <script type="text/javascript" src="../js/jqPaginator.js"></script>
+    <title>用户列表</title>
+    <script type="text/javascript">
+        $(function () {
+         var pages = $("#pages").val();
+         var pageSize = $("#pageSize").val();
+         var pageNum = $("#pageNum").val();
+        $.jqPaginator('#pagination1', {
+            totalPages: parseInt(pages),
+            visiblePages: parseInt(pageSize),
+            currentPage: parseInt(pageNum),
+            onPageChange: function (num, type) {
+                $('#p1').text(type + '：' + num);
+                if (type=="change"){
+                    location.href="http://localhost:8090/user/getUserList?page="+num;
+                }
+                console.log(type + '：' + num)
+            }
+        });
+        })
+    </script>
+    <style>
+        td{
+            width: 100px;
+            text-align: center;
+        }
+        th{
+            width: 100px;
+            text-align: center;
+        }
+        .userID{
+            width: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<h1 th:text="${name}"></h1>
+<table class="table">
+    <thead>
+    <tr class="warning">
+        <th class="userID">id</th>
+        <th>姓名</th>
+        <th>联系电话</th>
+        <th>出生日期</th>
+        <th>邮箱</th>
+        <th>地址</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--循环显示用户数据-->
+    <tr class="success" th:each="user : ${pageInfo.list}">
+        <td class="userID" th:text="${user.id}">user.id</td>
+        <td th:text="${user.name}">user.name</td>
+        <td th:text="${user.mobile}">user.mobile</td>
+        <td th:text="${user.birthday}">user.birthday</td>
+        <td th:text="${user.email}">user.email</td>
+        <td th:text="${user.did}">user.did</td>
+    </tr>
+    </tbody>
+    <!--分页控件-->
+    <tr>
+        <td colspan="6" style="text-align: right">
+            <input id="pages" type="hidden" th:value="${pageInfo.pages}">
+            <input id="pageSize" type="hidden" th:value="${pageInfo.pageSize}">
+            <input id="pageNum" type="hidden" th:value="${pageInfo.pageNum}">
+            <ul class="pagination" id="pagination1"></ul>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
