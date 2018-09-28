@@ -1,7 +1,9 @@
 package com.example.demo.config;
 
+import com.example.demo.component.MyLocaleResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -21,6 +23,12 @@ public class MyMvConfig extends WebMvcConfigurerAdapter {
        };
 
        return adapter;
+   }
+
+   //国际化
+   @Bean
+    public LocaleResolver localeResolver(){
+       return new MyLocaleResolver();
    }
 
 }

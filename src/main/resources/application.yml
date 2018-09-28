@@ -10,6 +10,8 @@ spring:
     username : root
     password : 1234
     driverClassName : com.mysql.jdbc.Driver
+  messages:
+    basename: i18n.login
 
 #pagehelper分页插件不同数据库只需修改elperDialect即可
 pagehelper:
