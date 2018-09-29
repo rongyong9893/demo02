@@ -66,6 +66,11 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <dependency>
+            <groupId>com.ternence.tutils</groupId>
+            <artifactId>t-utils</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

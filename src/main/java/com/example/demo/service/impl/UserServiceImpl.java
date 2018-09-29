@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.mapper.UserMapper;
+import com.example.demo.pojo.Consumer;
 import com.example.demo.pojo.User;
 import com.example.demo.service.UserService;
 import com.github.pagehelper.PageHelper;
@@ -26,5 +27,10 @@ public class UserServiceImpl implements UserService {
         List<User> list = mapper.getUserList();
         PageInfo<User> pageInfo = new PageInfo<>(list);
         return pageInfo;
+    }
+
+    @Override
+    public Consumer login(String username, String password) {
+        return mapper.login(username,password);
     }
 }

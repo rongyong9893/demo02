@@ -19,11 +19,9 @@
 });
 	$(function () 
 	{
-        $("#login").click(function () {
-/*			$.ajax({
-				url:
-			})*/
-        })
+/*        $("#login").click(function () {
+                  $("#from").submit();
+        })*/
 	    
     })
 </script>
@@ -36,13 +34,13 @@
 		<h1 th:text="#{login.tip}">Login Form</h1>
 		 <div class="alert-close"> </div> 			
 	</div>
-		<form>
+		<form th:action="@{/user/login}" method="post" id="from">
 			<li>
-				<input type="text" class="text" th:placeholder="#{login.username}"><a href="#" class=" icon user"></a>
+				<input type="text" class="text" name="username" th:placeholder="#{login.username}"><a href="#" class=" icon user"></a>
 			</li>
 				<div class="clear"> </div>
 			<li>
-				<input type="password" th:placeholder="#{login.password}"> <a href="#" class="icon lock"></a>
+				<input type="password" name="password" th:placeholder="#{login.password}"> <a href="#" class="icon lock"></a>
 			</li>
 			<div class="clear"> </div>
 			<div class="submit">

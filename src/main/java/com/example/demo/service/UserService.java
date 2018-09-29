@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.pojo.Consumer;
 import com.example.demo.pojo.User;
 import com.github.pagehelper.PageInfo;
 
@@ -9,4 +10,6 @@ import com.github.pagehelper.PageInfo;
  */
 public interface UserService {
     PageInfo<User> getUserList(Integer page, Integer rows);
+
+    Consumer login(String username, String password);
 }
